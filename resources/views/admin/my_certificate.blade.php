@@ -23,6 +23,9 @@
                     @endif
                 @endif
             </div>
+            <div class="row">
+                <img src="{{url('admin/certificate/certificate2.jpeg')}}">
+            </div>
         </div>
     </div>
     <!--end add client -->

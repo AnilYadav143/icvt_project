@@ -9,7 +9,7 @@
             </script>
             , made with ❤️ by
             <a href="#" target="_blank"
-                class="footer-link fw-bolder">Yaduvanshi</a>
+                class="footer-link fw-bolder">ICVT NOIDA</a>
         </div>
         <div>
             <a href="#" class="footer-link me-4"

@@ -85,6 +85,7 @@
                 <div data-i18n="Analytics">My Certificate</div>
             </a>
         </li>
+        
     </ul>
 </aside>
 <!-- / Menu -->

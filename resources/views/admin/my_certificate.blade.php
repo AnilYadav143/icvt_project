@@ -23,9 +23,12 @@
                     @endif
                 @endif
             </div>
+           
+            @hasrole('SuperAdmin|Admin')
             <div class="row">
                 <img src="{{url('admin/certificate/certificate2.jpeg')}}">
             </div>
+            @endhasrole
         </div>
     </div>
     <!--end add client -->

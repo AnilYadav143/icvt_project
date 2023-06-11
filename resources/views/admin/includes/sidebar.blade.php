@@ -24,58 +24,61 @@
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
         </li>
-
+        @hasrole('SuperAdmin')
         <!-- Role / Permission -->
-        <!--<li class="menu-item">-->
-        <!--    <a href="javascript:void(0);" class="menu-link menu-toggle">-->
-        <!--        <i class="menu-icon tf-icons bx bx-layout"></i>-->
-        <!--        <div data-i18n="Layouts">Role / Permission</div>-->
-        <!--    </a>-->
+        <li class="menu-item">
+           <a href="javascript:void(0);" class="menu-link menu-toggle">
+               <i class="menu-icon tf-icons bx bx-layout"></i>
+               <div data-i18n="Layouts">Role / Permission</div>
+           </a>
 
-        <!--    <ul class="menu-sub">-->
-        <!--        <li class="menu-item">-->
-        <!--            <a href="{{route('rolepermission.index')}}" class="menu-link">-->
-        <!--                <div data-i18n="Without menu">Role</div>-->
-        <!--            </a>-->
-        <!--        </li>-->
-        <!--        <li class="menu-item">-->
-        <!--            <a href="{{route('permission.index')}}" class="menu-link">-->
-        <!--                <div data-i18n="Without navbar">Permission</div>-->
-        <!--            </a>-->
-        <!--        </li>-->
-        <!--        <li class="menu-item">-->
-        <!--            <a href="{{route('assignpermission.index')}}" class="menu-link">-->
-        <!--                <div data-i18n="Container">Role Hash Permission</div>-->
-        <!--            </a>-->
-        <!--        </li>-->
-        <!--    </ul>-->
-        <!--</li>-->
-        <!--Clients Managements-->
-        <!--<li class="menu-item {{ request()->is('clienturl') ? 'active' : '' }}">-->
-        <!--    <a href="javascript:void(0);" class="menu-link menu-toggle">-->
-        <!--        <i class="menu-icon tf-icons bx bx-user"></i>-->
-        <!--        <div data-i18n="Layouts">Client Management</div>-->
-        <!--    </a>-->
+           <ul class="menu-sub">
+               <li class="menu-item">
+                   <a href="{{route('rolepermission.index')}}" class="menu-link">
+                       <div data-i18n="Without menu">Role</div>
+                   </a>
+               </li>
+               <li class="menu-item">
+                   <a href="{{route('permission.index')}}" class="menu-link">
+                       <div data-i18n="Without navbar">Permission</div>
+                   </a>
+               </li>
+               <li class="menu-item">
+                   <a href="{{route('assignpermission.index')}}" class="menu-link">
+                       <div data-i18n="Container">Role Hash Permission</div>
+                   </a>
+               </li>
+           </ul>
+        </li>
+        @endhasrole
+        @hasrole('SuperAdmin|Admin')
+        <!-- Clients Managements -->
+        <li class="menu-item {{ request()->is('clienturl') ? 'active' : '' }}">
+           <a href="javascript:void(0);" class="menu-link menu-toggle">
+               <i class="menu-icon tf-icons bx bx-user"></i>
+               <div data-i18n="Layouts">Client Management</div>
+           </a>
 
-        <!--    <ul class="menu-sub {{ request()->is('clienturl') ? 'active' : '' }}">-->
-        <!--        <li class="menu-item">-->
-        <!--            <a href="{{route('clienturl.index')}}" class="menu-link">-->
-        <!--                <div data-i18n="Without menu">Create Client</div>-->
-        <!--            </a>-->
-        <!--        </li>-->
-        <!--        <li class="menu-item">-->
-        <!--            <a href="{{route('clienturl.create')}}" class="menu-link">-->
-        <!--                <div data-i18n="Without navbar">Manage Client</div>-->
-        <!--            </a>-->
-        <!--        </li>-->
-        <!--    </ul>-->
-        <!--</li>-->
-        <!--<li class="menu-item {{ request()->is('certificate') ? 'active' : '' }}">-->
-        <!--    <a href="{{route('certificate')}}" class="menu-link">-->
-        <!--        <i class="menu-icon tf-icons bx bx-book-open"></i>-->
-        <!--        <div data-i18n="Analytics">Client Certificate</div>-->
-        <!--    </a>-->
-        <!--</li>-->
+           <ul class="menu-sub {{ request()->is('clienturl') ? 'active' : '' }}">
+               <li class="menu-item">
+                   <a href="{{route('clienturl.index')}}" class="menu-link">
+                       <div data-i18n="Without menu">Create Client</div>
+                   </a>
+               </li>
+               <li class="menu-item">
+                   <a href="{{route('clienturl.create')}}" class="menu-link">
+                       <div data-i18n="Without navbar">Manage Client</div>
+                   </a>
+               </li>
+           </ul>
+        </li>
+        <li class="menu-item {{ request()->is('certificate') ? 'active' : '' }}">
+           <a href="{{route('certificate')}}" class="menu-link">
+               <i class="menu-icon tf-icons bx bx-book-open"></i>
+               <div data-i18n="Analytics">Client Certificate</div>
+           </a>
+        </li>
+        @endhasrole
         <li class="menu-item {{ request()->is('my_certificate') ? 'active' : '' }}">
             <a href="{{route('my_certificate')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-book-open"></i>

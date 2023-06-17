@@ -10,7 +10,7 @@ class Gallery extends Model
     use HasFactory;
     protected $guarded = [];
 
-    // public function getUserGallery(){
-    //     return $this->belongsTo(User::class,'institute_id','id');
-    // }
+    public function getUserGallery(){
+        return $this->belongsTo(User::class,'institute_id','id');
+    }
 }

@@ -97,4 +97,28 @@ class AdminController extends Controller
         // dd($institute_imgs);
         return view('admin.institute_imgs',compact('institute_imgs'));
     }
+    /**
+     * Manage Institute Gallery image Form
+     */
+    public function ManageInstImg(){
+        $inst_imgs = Gallery::get();
+        return view('admin.manage_inst_img',compact('inst_imgs'));
+    }
+    /**
+     * Manage Institute Gallery image edit Form
+     */
+    public function EditInstImg($id){
+        dd('edit');
+    }
+    public function DeleteInstImg($id){
+        $data = Gallery::find($id)->delete();
+        if($data){  
+            // unlink($path.'/'.$request->old_pro_img);
+            Alert::alert('Great', 'Institute Gallery Deleted successfully');
+             return redirect()->back();  
+        }else{
+            Alert::alert('Error', 'Institute Gallery not Deleted');
+             return redirect()->back();  
+        }
+    }
 }

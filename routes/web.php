@@ -36,4 +36,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('institute_img',[AdminController::class,'InstituteImg'])->name('institute_img');
     Route::post('ins_save_img',[AdminController::class,'InsSaveImg'])->name('ins_save_img');
     Route::get('display_img',[AdminController::class,'DisplayImg'])->name('institute_img_display');
+    Route::get('manage_institute_img',[AdminController::class,'ManageInstImg'])->name('manage_institute_img');
+    Route::get('edit_inst_img/{id}',[AdminController::class,'EditInstImg'])->name('edit_inst_img');
+    Route::delete('delete_inst_img/{id}',[AdminController::class,'DeleteInstImg'])->name('delete_inst_img');
 });

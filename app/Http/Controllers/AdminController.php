@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ClientCertificate;
+use App\Models\Gallery;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -57,5 +58,43 @@ class AdminController extends Controller
         $crtfct =   ClientCertificate::where('user_id',Auth::user()->id)->first();
         // dd($crtfct);
         return view('admin.my_certificate',compact('crtfct'));
+    }
+    public function InstituteImg(){
+        $inst_ids = $users = User::role('Client')->get();
+        return view('admin.institute_img',compact('inst_ids'));
+    }
+    public function InsSaveImg(Request $request){
+        // dd($request['institute_id']);
+        $request->validate([
+            "institute_id"  => "required",
+            "image"         => 'required',
+        ]);
+
+        if ($request->file('image')) {
+            $files = $request->file('image');
+            $images = [];
+            foreach ($files as $file) {
+                $name = 'gallery-' . rand(0, 9) . time() . '.' . $file->extension();
+                $destinationPath ='/gallery';
+                $fullname = $destinationPath.'/'.$name;
+                $file->move(public_path($destinationPath), $name);
+                $images[] = $fullname;
+            }
+        }
+// print_r($request->institute_id);die;
+        $save_res = Gallery::create([
+            "institute_id" => $request->institute_id,
+            "image" => json_encode($images),
+        ]);
+        if($save_res){
+            return redirect()->back()->with('toast_success','Institute Image Saved!');
+        }else{
+            return redirect()->back()->with('toast_error','Institute Image not Saved!');
+        }
+    }
+    public function DisplayImg(){
+        $institute_imgs = Gallery::where('institute_id',Auth::id())->get();
+        // dd($institute_imgs);
+        return view('admin.institute_imgs',compact('institute_imgs'));
     }
 }

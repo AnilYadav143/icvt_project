@@ -85,6 +85,34 @@
                 <div data-i18n="Analytics">My Certificate</div>
             </a>
         </li>
+        <li class="menu-item">
+           <a href="javascript:void(0);" class="menu-link menu-toggle">
+               <i class="menu-icon tf-icons bx bx-layout"></i>
+               <div data-i18n="Layouts">Institute Image</div>
+           </a>
+
+           <ul class="menu-sub">
+            @hasrole('SuperAdmin|Admin')
+               <li class="menu-item">
+                   <a href="{{route('institute_img')}}" class="menu-link">
+                       <div data-i18n="Without menu">Add</div>
+                   </a>
+               </li>
+               <li class="menu-item">
+                   <a href="{{route('permission.index')}}" class="menu-link">
+                       <div data-i18n="Without navbar">Manage</div>
+                   </a>
+               </li>
+            @endhasrole
+               <li class="menu-item">
+                   <a href="{{route('institute_img_display')}}" class="menu-link">
+                       <div data-i18n="Without navbar">Institute Photos</div>
+                   </a>
+               </li>
+              
+           </ul>
+        </li>
+        
         
     </ul>
 </aside>

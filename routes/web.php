@@ -33,4 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('upload_certificate/{id}',[AdminController::class,'UploadCertificate'])->name('upload_certificate');
     Route::post('save_certificate',[AdminController::class,'SaveCertificate'])->name('save_certificate');
     Route::get('my_certificate',[AdminController::class,'MyCertificate'])->name('my_certificate');
+    Route::get('institute_img',[AdminController::class,'InstituteImg'])->name('institute_img');
+    Route::post('ins_save_img',[AdminController::class,'InsSaveImg'])->name('ins_save_img');
+    Route::get('display_img',[AdminController::class,'DisplayImg'])->name('institute_img_display');
 });

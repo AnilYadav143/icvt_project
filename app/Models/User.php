@@ -15,4 +15,13 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable,SoftDeletes,HasRoles;
 
     protected $guarded=[];
+
+    // in your model 
+
+protected $appends = ['full_name'];
+public function getFullNameAttribute()
+{
+    	return ucwords("{$this->firstname} {$this->lastname}");
+}
+
 }

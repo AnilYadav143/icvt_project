@@ -87,9 +87,11 @@ class AdminController extends Controller
             "image" => json_encode($images),
         ]);
         if($save_res){
-            return redirect()->back()->with('toast_success','Institute Image Saved!');
+            Alert::alert('Great', 'Institute Image Saved!');
+            return redirect()->back();
         }else{
-            return redirect()->back()->with('toast_error','Institute Image not Saved!');
+            Alert::alert('Error', 'Institute Image not Saved!');
+            return redirect()->back();
         }
     }
     public function DisplayImg(){

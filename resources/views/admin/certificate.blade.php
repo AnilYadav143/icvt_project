@@ -35,11 +35,11 @@
                     <tr>
                     <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$loop->index+1}}</strong></td>
                     <td><a href="{{url('admin/certificate/'.$certival->certificate)}}" target="_blank" class='btn btn-success'>View</a></td>
-                    <td>{{Auth::user($certival->user_id)->firstname}}</td>
-                    <td>{{Auth::user($certival->user_id)->phone}}</td>
-                    <td>{{Auth::user($certival->user_id)->state}}</td>
-                    <td>{{Auth::user($certival->user_id)->city}}</td>
-                    <td>{{$certival->created_at}}</td>
+                    <td>{{$certival->getUserCertificate->full_name??''}}</td>
+                    <td>{{$certival->getUserCertificate->phone??''}}</td>
+                    <td>{{$certival->getUserCertificate->state??''}}</td>
+                    <td>{{$certival->getUserCertificate->city??''}}</td>
+                    <td>{{$certival->getUserCertificate->created_at??''}}</td>
                     <td>
                         <div class="form-check form-switch" >
                             <a href="{{route('clienturl.show',$certival->status)}}" >    

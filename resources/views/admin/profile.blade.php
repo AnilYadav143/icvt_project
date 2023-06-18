@@ -41,11 +41,11 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label for="fname" class="form-label">First Name</label>
+                            <label for="fname" class="form-label">Owner Name</label>
                             <input class="form-control" type="text" readonly id="fname" name="fname" value="{{isset($user_data->firstname)?$user_data->firstname:''}}" autofocus/>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <label for="lname" class="form-label">Last Name</label>
+                            <label for="lname" class="form-label">Institute Name</label>
                             <input class="form-control" type="text" readonly id="lname" name="lname" value="{{isset($user_data->lastname)?$user_data->lastname:''}}" autofocus/>
                         </div>
                         <div class="mb-3 col-md-6">

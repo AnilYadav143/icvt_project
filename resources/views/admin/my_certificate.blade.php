@@ -13,6 +13,7 @@
                     @php
                         $extname = explode('.',$crtfct->certificate);
                         $extn   =   end($crtfct);
+                        var_dump($crtfct);
                     @endphp
                     @if($extn == 'pdf')
                     <object data="{{url('admin/certificate/'.$crtfct->certificate)}}" type="application/pdf" width="100%" height="500px">

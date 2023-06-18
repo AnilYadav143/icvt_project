@@ -7,7 +7,7 @@
             <script>
             document.write(new Date().getFullYear());
             </script>
-            , made with ❤️ by
+            , made by
             <a href="#" target="_blank"
                 class="footer-link fw-bolder">ICVT NOIDA</a>
         </div>

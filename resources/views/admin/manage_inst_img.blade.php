@@ -36,7 +36,7 @@
                     <td>
                             {{$img_val->getUserGallery->full_name}} 
                     </td>
-                    <td><img src="{{$img1[0]}}" height="50px" width="50px"></td>
+                    
                     <td>{{$img_val->created_at}}</td>
                     <td>
                         <div class="dropdown">

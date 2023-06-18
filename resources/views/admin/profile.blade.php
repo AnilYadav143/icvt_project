@@ -81,7 +81,7 @@
                         </div>
                     </div>
                     <div class="mt-2">
-                        <button type="submit" class="btn btn-primary me-2">Save changes</button>
+                        <!-- <button type="submit" class="btn btn-primary me-2">Save changes</button> -->
                     </div>
                 </div>
             </form>

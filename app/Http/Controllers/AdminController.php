@@ -72,16 +72,17 @@ class AdminController extends Controller
 
         if ($request->file('image')) {
             $files = $request->file('image');
+            
             $images = [];
             foreach ($files as $file) {
-                $name = 'gallery-' . rand(0, 9) . time() . '.' . $file->extension();
+                $name = 'gallery-' . rand(0, 10000) . time() . '.' . $file->extension();
                 $destinationPath ='/gallery';
                 $fullname = $destinationPath.'/'.$name;
                 $file->move(public_path($destinationPath), $name);
                 $images[] = $fullname;
             }
         }
-// print_r($request->institute_id);die;
+// echo "<pre>";print_r($images);die;
         $save_res = Gallery::create([
             "institute_id" => $request->institute_id,
             "image" => json_encode($images),

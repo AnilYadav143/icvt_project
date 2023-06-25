@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ClientCertificate;
 use App\Models\Gallery;
+use App\Models\StudentAdmission;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -37,7 +38,7 @@ class AdminController extends Controller
         ]);
 
         if($request->hasFile('certificate')){
-            $name   = 'certificate'.rand(0,1).time().'.'.$request->certificate->extension();
+            $name   = 'certificate'.rand(0,100).time().'.'.$request->certificate->extension();
             $path   = public_path().'/admin/certificate';
             $request->certificate->move($path,$name);
             $res    =   ClientCertificate::create([
@@ -124,4 +125,41 @@ class AdminController extends Controller
              return redirect()->back();  
         }
     }
+
+    public function AdmissionCSV(){
+        $inst_ids = $users = User::role('Client')->get();
+        return view('admin.admission_csv',compact('inst_ids'));
+    }
+
+    public function SaveAdmission(Request $request){
+        $request->validate([
+            'institute_id'=>'required',
+            'excel'=>'required',
+        ]);
+
+        if($request->hasFile('excel')){
+            $name   = 'admission'.rand(0,100).time().'.'.$request->excel->extension();
+            $path   = public_path().'/admin/admission_excel';
+            $request->excel->move($path,$name);
+            $res    =   StudentAdmission::create([
+                'institute_id'=>$request->institute_id,
+                'excel'=>$name,
+                'status'=>1,
+            ]);
+        }
+        if($res){
+            Alert::alert('Success','Successfully uploaded Admission Sheet');
+            return redirect()->route('show_admission');
+        }else{
+            Alert::alert('Error',' Sheet not uploaded');
+            return redirect()->route('admission_csv');
+        }
+    }
+    public function ShowAdmission(){
+        $stu_excel =   StudentAdmission::where('institute_id',Auth::user()->id)->first();
+        // dd($stu_excel);
+        return view('admin.show_admission',compact('stu_excel'));
+    }
+
+
 }

@@ -112,6 +112,33 @@
               
            </ul>
         </li>
+        <li class="menu-item">
+           <a href="javascript:void(0);" class="menu-link menu-toggle">
+               <i class="menu-icon tf-icons bx bx-layout"></i>
+               <div data-i18n="Layouts">Institute Admision</div>
+           </a>
+
+           <ul class="menu-sub">
+            @hasrole('SuperAdmin|Admin')
+               <li class="menu-item">
+                   <a href="{{route('admision_csv')}}" class="menu-link">
+                       <div data-i18n="Without menu">Upload Admision CSV</div>
+                   </a>
+               </li>
+               <li class="menu-item">
+                   <a href="{{route('manage_institute_img')}}" class="menu-link">
+                       <div data-i18n="Without navbar">Manage Excel</div>
+                   </a>
+               </li>
+            @endhasrole
+               <li class="menu-item">
+                   <a href="{{route('show_admission')}}" class="menu-link">
+                       <div data-i18n="Without navbar">Student Admission Excel</div>
+                   </a>
+               </li>
+              
+           </ul>
+        </li>
         
         
     </ul>
